@@ -3,7 +3,6 @@
 *.com
 *.class
 *.dll
-*.exe
 *.o
 *.so
 
@@ -35,3 +34,7 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+#   Ignore Backup    #
+######################
+backup/
