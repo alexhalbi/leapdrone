@@ -16,6 +16,8 @@
   }
 
   var takeoff = function () {
+	$(".land").attr({visibility: 'hidden'})
+	$(".flying").attr({visibility: ''})
   	flying = true; // enables actions to be published
   	return faye.publish("/drone/drone", {
       action: 'takeoff'
@@ -23,6 +25,8 @@
    }
 
   var land = function () {
+	$(".land").attr({visibility: 'hidden'})
+	$(".flying").attr({visibility: ''})
   	flying = false;	// prevents faye from publishing actions when drone has landed
   	return faye.publish("/drone/drone", {
       action: 'land'
