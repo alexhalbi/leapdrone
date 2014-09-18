@@ -31,16 +31,17 @@
 
   var handPos = function (frame) {
     var hands = frame.hands // leap detects all hands in field of vision
-    if (hands.length === 0 && !stopped) {
-      stopped = true;
-        $("rect#highlight").attr({id: ''})
-        setTimeout(function (){
-          return faye.publish("/drone/drone", {
-            action: 'stop'
-          })
-        }, timeout);
+    if (hands.length === 0 && flying) {
+      land();
     } else if (hands.length > 0){
       var handOne = hands[0]; // first hand.  Can add second hand
+	  
+	  //takeoff() when min 4 Fingers detected, land() when less than 4
+	  if (handOne.fingers[].length>3 && !flying) {
+		takeoff();
+	  } else if (handOne.fingers[].length<4 && flying) {
+		land();
+	  }
 
       var pos = handOne.palmPosition;  // tracks palm of first hand
        
