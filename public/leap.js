@@ -41,9 +41,9 @@
       var handOne = hands[0]; // first hand.  Can add second hand
 	  
 	  //takeoff() when min 4 Fingers detected, land() when less than 4
-	  if (handOne.fingers[].length>3 && !flying) {
+	  if (handOne.fingers.length>3 && !flying) {
 		takeoff();
-	  } else if (handOne.fingers[].length<4 && flying) {
+	  } else if (handOne.fingers.length<4 && flying) {
 		land();
 	  }
 
