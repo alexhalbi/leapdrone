@@ -50,10 +50,7 @@
       var pos = handOne.palmPosition;  // tracks palm of first hand
        
 	  var yaw;
-	  if(lastFrame!=null)
-		yaw = handOne.yaw(); //deadzone 35°
-	  else
-		yaw = -1;
+	  yaw = handOne.yaw(); //deadzone 35°
 	  
       var xPos = pos[0]; // position of hand on x axis
       var yPos = pos[1]; // position of hand on y axis
@@ -62,7 +59,7 @@
       var adjX = xPos / 250; // -1.5 to 1.5
       var adjXspeed = Math.abs(adjX)/ speedAdjuster; // left/right speed
       var adjY = (yPos - 60) / 500; // 0 to .8
-      var adjYspeed = Math.abs(.4-adjY) // up/down speed
+      var adjYspeed = Math.abs(.4-adjY) // up/down speed 
       var adjZ = zPos / 250; // -2 to 2
       var adjZspeed = Math.abs(adjZ) / speedAdjuster; // front/back speed
 	 
