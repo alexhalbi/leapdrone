@@ -9,10 +9,10 @@ How to Fly
 
 1. Run the run.bat
 2. Hold hand above Leap Motion controller
-3. To takeoff, gesture with your pointer finger as though left clicking a mouse
-4. Keeping fingers together as though saluting, move hand right to move drone right, up to move drone up and forward to move drone forward
-5. To rotate, make a circle with pointer finger in a clockwise or counterclockwise motion
-6. To land, gesture with pointer finger as though left clicking a mouse
+3. To takeoff, open your hand above the controller
+4. Move hand right to move drone right, up to move drone up and forward to move drone forward
+5. To rotate, rotate your Hand in the same direction the drone should rotate
+6. To land, simply put your fingers together and take the hand away
 
 Stack
 =======================
