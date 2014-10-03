@@ -25,8 +25,16 @@
    }
 
   var land = function () {
-	$(".land").attr({visibility: 'hidden'})
-	$(".flying").attr({visibility: ''})
+	$(".land").attr({visibility: ''})
+	$(".flying").attr({visibility: 'hidden'})
+	$(".left").attr({id: ''})
+	$(".right").attr({id: ''})
+	$(".counterClockwise").attr({id: ''})
+    $(".clockwise").attr({id: ''})
+	$(".back").attr({id: ''})
+	$(".front").attr({id: ''})
+	$(".down").attr({id: ''})
+	$(".up").attr({id: ''})
   	flying = false;	// prevents faye from publishing actions when drone has landed
   	return faye.publish("/drone/drone", {
       action: 'land'
