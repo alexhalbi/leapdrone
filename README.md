@@ -41,5 +41,5 @@ Thanks
 
 Thank to Daniel @liebeskind for the main source code which I have improved.
 Thanks to @phillipalexander for introducing me to Faye, @felixge for AR-Drone and @bkw for Dronestream
-Thanks to @rohitghatol for his [program]("https://github.com/rohitghatol/ardrone-nodejs-browser-control") with battery status
-Thanks to leapmotion-examples for the [bone-hand example]("https://github.com/leapmotion-examples/javascript/tree/master/v2/bone-hand")
+Thanks to @rohitghatol for his [program](https://github.com/rohitghatol/ardrone-nodejs-browser-control) with battery status
+Thanks to leapmotion-examples for the [bone-hand example](https://github.com/leapmotion-examples/javascript/tree/master/v2/bone-hand)
