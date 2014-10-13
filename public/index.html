@@ -23,28 +23,48 @@
     <td>
       <div id="placeholder"></div>
     </td>
-    <td><svg width="500px" height="350px">
-      <rect class = "front" x='100' y='0' width="50" height="50" />
-      <text id = "directionText" x = '118' y = '35'> F </text>
-      <rect class = "left" x='50' y='50' width="50" height="50" text="L"/>
-      <text id = "directionText" x = '68' y = '85'> L </text>
-      <rect class = "right" x='150' y='50' width="50" height="50"/>
-      <text id = "directionText" x = '168' y = '85'> R </text>
-      <rect class = "back" x='100' y='100' width="50" height="50"/>
-      <text id = "directionText" x = '118' y = '135'> B </text>
-      <rect class = "up" x='300' y='0' width="50" height="50" />
-      <text id = "directionText" x = '318' y = '35'> U </text>
-      <rect class = "clockwise" x='350' y='50' width="50" height="50" />
-      <text id = "directionText" x = '360' y = '85'> RR </text>
-      <rect class = "down" x='300' y='100' width="50" height="50"/>
-      <text id = "directionText" x = '318' y = '135'> D </text>
-      <rect class = "counterClockwise" x='250' y='50' width="50" height="50" />
-      <text id = "directionText" x = '260' y = '85'> RL </text>
-      <rect class = "flying" fill="green" x='175' y='0' width="100" height="45" visibility="hidden"/>
-      <text id = "directionText" x = '202' y = '35'> FLY </text>
-      <rect class = "land" fill="red" x='175' y='105' width="100" height="45"/>
-      <text id = "directionText" x = '192' y = '135'> LAND </text>
-      </svg></td>
+    <td>
+		<svg width="500px" height="350px">
+      		<rect class = "front" x='100' y='0' width="50" height="50" />
+	      <text id = "directionText" x = '118' y = '35'> F </text>
+	      <rect class = "left" x='50' y='50' width="50" height="50" text="L"/>
+	      <text id = "directionText" x = '68' y = '85'> L </text>
+    	  <rect class = "right" x='150' y='50' width="50" height="50"/>
+	      <text id = "directionText" x = '168' y = '85'> R </text>
+    	  <rect class = "back" x='100' y='100' width="50" height="50"/>
+	      <text id = "directionText" x = '118' y = '135'> B </text>
+    	  <rect class = "up" x='300' y='0' width="50" height="50" />
+	      <text id = "directionText" x = '318' y = '35'> U </text>
+    	  <rect class = "clockwise" x='350' y='50' width="50" height="50" />
+	      <text id = "directionText" x = '360' y = '85'> RR </text>
+    	  <rect class = "down" x='300' y='100' width="50" height="50"/>
+	      <text id = "directionText" x = '318' y = '135'> D </text>
+    	  <rect class = "counterClockwise" x='250' y='50' width="50" height="50" />
+	      <text id = "directionText" x = '260' y = '85'> RL </text>
+    	  <rect class = "flying" fill="green" x='175' y='0' width="100" height="45" visibility="hidden"/>
+      	  <text id = "directionText" x = '202' y = '35'> FLY </text>
+	      <rect class = "land" fill="red" x='175' y='105' width="100" height="45"/>
+    	  <text id = "directionText" x = '192' y = '135'> LAND </text>
+      	</svg>
+      </td>
+  </tr>
+  <tr>
+  	<td/>
+    <td>
+    	<svg width="500px" height="500px">
+	 		<image x="100" y="100" xlink:href="img/drone.jpeg" width="300" height="300"/> 
+			<image class = "front" x="400" y="235" transform = "rotate(-90 250 250)" xlink:href="img/arrow.png" width="100" height="38" visibility="hidden"/> 
+			<image class = "right" x="400" y="235" transform = "rotate(0 250 250)" xlink:href="img/arrow.png" width="100" height="38" visibility="hidden"/>
+			<image class = "back" x="400" y="235" transform = "rotate(90 250 250)" xlink:href="img/arrow.png" width="100" height="38" visibility="hidden"/>
+			<image class = "left"  x="400" y="235" transform = "rotate(180 250 250)" xlink:href="img/arrow.png" width="100" height="38" visibility="hidden"/>
+			<image class = "counterClockwise" x="135" y="15" transform="translate(500,0) scale(-1,1)" xlink:href="img/CurvedArrow.png" width="250" height="95" visibility="hidden"/>
+			<image class="clockwise" x="135" y="15" xlink:href="img/CurvedArrow.png" width="250" height="95" visibility="hidden"/>
+			<circle class = "land" cx="252" cy="250" r="10" fill="red" />
+			<circle class = "flying" cx="252" cy="250" r="10" fill="green" visibility="hidden" />
+			<image class="up" x="265" y="239" transform="rotate(-90 250 250)" xlink:href="img/arrow_transparent.png" width="70" height="27" visibility="hidden"/>
+			<image class="down" x="266" y="237" transform="rotate(90 250 250)" xlink:href="img/arrow_transparent.png" width="70" height="27" visibility="hidden"/>
+		</svg>
+    </td>
   </tr>
 </table>
 <input id="clickMe" type="button" value="Disable Emergency" onclick="disableEmerg();" />
