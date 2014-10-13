@@ -74,7 +74,6 @@
 <table>
   <tr>
     <td>
-    <!--  width="889" height="500" -->
       <div id="vid-front" style="width: 889px; height: 500px" ></div>
     </td>
     <td>
@@ -91,6 +90,7 @@
 			<image class="up" x="265" y="239" transform="rotate(-90 250 250)" xlink:href="img/arrow_transparent.png" width="70" height="27" visibility="hidden"/>
 			<image class="down" x="266" y="237" transform="rotate(90 250 250)" xlink:href="img/arrow_transparent.png" width="70" height="27" visibility="hidden"/>
 		</svg>
+        
       </td>
     <td height="500px">
         <div class="bar color0">
@@ -105,17 +105,20 @@
             ">-</span>
         </div>
      </td>
+     <td>
+     	<input id="clickMe" type="button" value="Disable Emergency" onclick="disableEmerg();" />
+     </td>
   </tr>
   <tr>
   	<td>
         
     </td>
-    <td>
-    	
+    <td colspan="3">
+    	<iframe width="500px" height="500px" src="bone-hand.html"></iframe>
     </td>
   </tr>
 </table>
-<input id="clickMe" type="button" value="Disable Emergency" onclick="disableEmerg();" />
+
 <script src="/flying_functions.js"></script>
 <script src="/leap.js"></script>
 </body>
