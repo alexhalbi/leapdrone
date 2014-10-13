@@ -38,3 +38,12 @@
   server.listen(app.get('port'), function () {
     return console.log("Express server listening on port" + app.get("port"));
   })
+
+  //Battery Stat
+  var io = require('socket.io').listen(server);
+  io.on('connection', function (socket) {
+    setInterval(function(){
+        var batteryLevel = drone.battery();
+        var b = socket.emit('event', { name: 'battery',value: batteryLevel});
+    },1000);
+  });
