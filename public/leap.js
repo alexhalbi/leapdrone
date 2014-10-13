@@ -18,15 +18,14 @@
   var takeoff = function () {
 	$(".land").attr({visibility: 'hidden'})
 	$(".flying").attr({visibility: ''})
+	resetView();
   	flying = true; // enables actions to be published
   	return faye.publish("/drone/drone", {
       action: 'takeoff'
     });
    }
-
-  var land = function () {
-	$(".land").attr({visibility: ''})
-	$(".flying").attr({visibility: 'hidden'})
+   
+  var resetView = function () {
 	$(".left").attr({id: ''})
 	$(".right").attr({id: ''})
 	$(".counterClockwise").attr({id: ''})
@@ -35,6 +34,12 @@
 	$(".front").attr({id: ''})
 	$(".down").attr({id: ''})
 	$(".up").attr({id: ''})
+  }
+
+  var land = function () {
+	resetView();
+	$(".land").attr({visibility: ''})
+	$(".flying").attr({visibility: 'hidden'})
   	flying = false;	// prevents faye from publishing actions when drone has landed
   	return faye.publish("/drone/drone", {
       action: 'land'
@@ -80,8 +85,8 @@
 	  } else {	//yaw or fly (Never both!!)
 		  if (adjX < 0 && flying) { // flying set in takeoff() and land() to prevent actions while drone landed
 			stopped = false;
+			resetView();
 			$(".left").attr({id: 'highlight'})
-			$(".right").attr({id: ''})
 			setTimeout(function (){
 			  return faye.publish("/drone/move", {
 				  action: 'left',
@@ -90,8 +95,8 @@
 			}, timeout);
 		  } else if (adjX > 0 && flying) {
 			stopped = false;
+			resetView();
 			$(".right").attr({id: 'highlight'})
-			$(".left").attr({id: ''})
 			setTimeout(function (){
 			  return faye.publish("/drone/move", {
 				action: 'right',
@@ -102,8 +107,8 @@
 
 		  if (adjY > 0.4 && flying) {
 			stopped = false;
+			resetView();
 			$(".up").attr({id: 'highlight'})
-			$(".down").attr({id: ''})
 			setTimeout(function (){
 			  return faye.publish("/drone/move", {
 				action: 'up',
@@ -112,8 +117,8 @@
 			}, timeout/2);
 		  } else if (adjY < 0.4 && flying) {
 			stopped = false;
+			resetView();
 			$(".down").attr({id: 'highlight'})
-			$(".up").attr({id: ''})
 			setTimeout(function (){
 			  return faye.publish("/drone/move", {
 				action: 'down',
@@ -124,8 +129,8 @@
 
 		  if (adjZ < 0 && flying) {
 			stopped = false;
+			resetView();
 			$(".front").attr({id: 'highlight'})
-			$(".back").attr({id: ''})
 			setTimeout(function (){
 			  return faye.publish("/drone/move", {
 				action: 'front',
@@ -134,8 +139,8 @@
 			}, timeout/3);
 		  } else if (adjZ > 0 && flying) {
 			stopped = false;
+			resetView();
 			$(".back").attr({id: 'highlight'})
-			$(".front").attr({id: ''})
 			setTimeout(function (){
 			  return faye.publish("/drone/move", {
 				action: 'back',
@@ -148,8 +153,8 @@
   }
 
   var counterClockwise = function () {
+	resetView();
     $(".counterClockwise").attr({id: 'highlight'})
-    $(".clockwise").attr({id: ''})
     faye.publish("/drone/move", {
       action: 'counterClockwise',
       speed: speed
@@ -162,8 +167,8 @@
    };
 
   var clockwise = function () {
+	resetView();
     $(".clockwise").attr({id: 'highlight'})
-    $(".counterClockwise").attr({id: ''})
     faye.publish("/drone/move", {
       action: 'clockwise',
       speed: speed
