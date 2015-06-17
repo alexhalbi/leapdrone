@@ -10,15 +10,16 @@
   timeout = 400;  // used for each server publish
   speedAdjuster = 2.5; // higher number decreases action speed.  DO NOT set to less than 1
   rotateSpeed = 0.5;
+  handYawAdjust = 0.0;
 
   var mainRoutine = function (frame) { // Runs on every frame
     handPos(frame); // all other actions
   }
 
   var takeoff = function () {
+	resetView();
 	$(".land").attr({visibility: 'hidden'})
 	$(".flying").attr({visibility: ''})
-	resetView();
   	flying = true; // enables actions to be published
   	return faye.publish("/drone/drone", {
       action: 'takeoff'
@@ -49,7 +50,8 @@
   var handPos = function (frame) {
     var hands = frame.hands // leap detects all hands in field of vision
     if (hands.length === 0 && flying) {
-      land();
+		land();
+		handYawAdjust = 0.0;
     } else if (hands.length > 0){
       var handOne = hands[0]; // first hand.  Can add second hand
 	  
@@ -58,12 +60,19 @@
 		takeoff();
 	  } else if (handOne.fingers.length<4 && flying) {
 		land();
+		handYawAdjust = 0.0;
 	  }
 	  
       var pos = handOne.palmPosition;  // tracks palm of first hand
        
 	  var yaw;
 	  yaw = handOne.yaw(); //deadzone 35°
+	  if(handYawAdjust == 0.0) handYawAdjust = yaw;
+	  yaw = yaw - handYawAdjust;
+	  console.log("Yaw:");
+	  console.log(yaw);
+	  console.log("HandYawAdjust:");
+	  console.log(handYawAdjust);
 	  
       var xPos = pos[0]; // position of hand on x axis
       var yPos = pos[1]; // position of hand on y axis
