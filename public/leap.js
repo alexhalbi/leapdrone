@@ -64,15 +64,6 @@
 	  }
 	  
       var pos = handOne.palmPosition;  // tracks palm of first hand
-       
-	  var yaw;
-	  yaw = handOne.yaw(); //deadzone 35°
-	  if(handYawAdjust == 0.0) handYawAdjust = yaw;
-	  yaw = yaw - handYawAdjust;
-	  console.log("Yaw:");
-	  console.log(yaw);
-	  console.log("HandYawAdjust:");
-	  console.log(handYawAdjust);
 	  
       var xPos = pos[0]; // position of hand on x axis
       var yPos = pos[1]; // position of hand on y axis
@@ -86,6 +77,12 @@
       var adjZspeed = Math.abs(adjZ) / speedAdjuster; // front/back speed
 	 
 	  if (yaw < -0.2 && flying) {   //rotate conterclockwise
+	  var yaw = 0;
+	  if (document.getElementById('yawEnabled').checked) {
+		  yaw = handOne.yaw(); //deadzone 35°
+		  if(handYawAdjust == 0.0) handYawAdjust = yaw;
+		  yaw = yaw - handYawAdjust;
+	  }
 		speed = Math.abs(rotateSpeed * yaw);
 		counterClockwise();
 	  } else if (yaw > 0.2 && flying) {
