@@ -109,6 +109,14 @@
 		<p><input id="disableEmergencyButton" class="button" type="button" value="Disable Emergency" onclick="disableEmerg();"></p>
 		<p><input id="yawEnabled" class="checkbox" type="checkbox"> Rotation</p>
 		<p><input id="heightEnabled" class="checkbox" type="checkbox"> Height</p>
+		<div id="stats">     
+			<div>Battery: <span id="batteryPercentage">(Drone not connected)</span>%</div>
+			<div>Direction: <span id="clockwiseDegrees"></span>°</div>
+			<div>front/back: <span id="frontBackDegrees"></span>°</div>
+			<div>left/right: <span id="leftRightDegrees"></span>°</div>
+			<div>Altitude: <span id="altitudeMeters"></span>m</div>
+			<div>Velocity (x/y/z): <span id="xVelocity"></span> / <span id="yVelocity"></span> / <span id="zVelocity"></span></div>
+		</div>
      </td>
   </tr>
   <tr>

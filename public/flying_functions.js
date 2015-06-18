@@ -8,3 +8,8 @@ faye = new Faye.Client("/faye", { timeout: 60 }); // may need to adjust. If serv
     });
 	land();
   }
+  faye.subscribe("/drone/navdata", function(data) {
+    ["batteryPercentage", "clockwiseDegrees", "altitudeMeters", "frontBackDegrees", "leftRightDegrees", "xVelocity", "yVelocity", "zVelocity"].forEach(function(type) {
+      return $("#" + type).html(Math.round(data.demo[type], 4));
+    });
+  });
