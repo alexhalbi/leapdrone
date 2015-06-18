@@ -76,13 +76,19 @@
       var adjZ = zPos / 250; // -2 to 2
       var adjZspeed = Math.abs(adjZ) / speedAdjuster; // front/back speed
 	 
-	  if (yaw < -0.2 && flying) {   //rotate conterclockwise
 	  var yaw = 0;
 	  if (document.getElementById('yawEnabled').checked) {
 		  yaw = handOne.yaw(); //deadzone 35°
 		  if(handYawAdjust == 0.0) handYawAdjust = yaw;
 		  yaw = yaw - handYawAdjust;
 	  }
+	  if (!document.getElementById('heightEnabled').checked) {
+		  adjY = 0.4;
+		  adjYspeed = 0;
+	  }
+	  
+	 
+	 if (yaw < -0.2 && flying) {   //rotate conterclockwise
 		speed = Math.abs(rotateSpeed * yaw);
 		counterClockwise();
 	  } else if (yaw > 0.2 && flying) {
