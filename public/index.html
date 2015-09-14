@@ -52,6 +52,9 @@
 <script src="node_modules/dronestream/dist/nodecopter-client.js"></script>
 <script src="socket.io/socket.io.js"></script>
 <script>
+window.alert("Press F12 (slowly) twice to start");
+</script>
+<script>
 	$(function () {
       function startArDRoneStream() {
         new NodecopterStream(document.getElementById("vid-front"), {port: 3001});
